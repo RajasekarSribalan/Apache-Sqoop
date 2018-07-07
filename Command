@@ -829,7 +829,28 @@ Output is,
 145,thum,null,11,2014-11-06
 
 
+***** Hive import ****
 
+--hive-import
+--hive-database  -> hive database name
+--hive table -> hive tablename
+
+BY default the sqoop delimeter is (,)
+BY default the hive delimeter is (^A) ctrl+A
+
+sqoop import \
+ --connect "jdbc:mysql://localhost:3306/mytrainingdb" \
+ --username root \
+ --password root \
+ --table temptable \
+ --hive-import \
+ --hive-database hduser_sqoop_import \
+ --hive-table temptable_hive/ \
+ --num-mappers 2
+ 
+ Once the above command is run,we can see a folder with databasename/table name/Part file  will be created in the below path
+ 
+ /user/hive/warehouse/hduser_sqoop_import/temptable_hive/00000
 
 
 
