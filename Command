@@ -852,13 +852,36 @@ sqoop import \
  
  /user/hive/warehouse/hduser_sqoop_import/temptable_hive/00000
 
+Pleaset note,sqoop first put the data in hdfs directory of /user/hduser/temptable and from there it is moved to hive table
+
+**  Managing Tables ****
+
+#IF we run the same above sqoop import once again, the data will be appended.
+#So by default it will be appended.
+If we can to ovewrite we need to add below command
+--hive-overwrite
+
+It will drop and recreate the table and load the data again.
+
+sqoop import \
+ --connect "jdbc:mysql://localhost:3306/mytrainingdb" \
+ --username root \
+ --password root \
+ --table temptable \
+ --hive-import \
+ --hive-database hduser_sqoop_import \
+ --hive-table temptable_hive/ \
+ --hive-overwrite \
+ --num-mappers 2
 
 
+If we want to throw an error if a table is already present,then use the below control argument.
 
+--create-hive-table will fail hive import, if table already exists
 
+the error will be thrown at the last step before hive import.but the data will be in staging directory. this is an issue with sqoop.
 
-
-
+so we need to manually delete it.
 
 
 
