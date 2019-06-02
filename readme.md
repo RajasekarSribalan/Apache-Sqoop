@@ -14,3 +14,4 @@ Behind the scene,sqoop uses `Map reduce` to import and export the data set.Hence
 	* [File format and compression] ()
 	* [Filtering] ()
 	* [Handling nulls and delimiters]()
+	* [Increemental Loads] ()
