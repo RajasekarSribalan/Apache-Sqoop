@@ -7,7 +7,7 @@ Behind the scene,sqoop uses `Map reduce` to import and export the data set.Hence
 
 ## Sqoop commands
 	
-	* [Sqoop  list-databases and list-tables](/sqoop commands/Sqoop list.md)
+	* [Sqoop  list-databases and list-tables] (sqoop commands/Sqoop list.md)
 	* [Sqoop eval]()
 	* [Sqoop import]()
 	* [Customizing mappers]()
