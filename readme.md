@@ -16,3 +16,4 @@ Behind the scene,sqoop uses `Map reduce` to import and export the data set.Hence
 	* [Handling nulls and delimiters]()
 	* [Increemental Loads] ()
 	* [Hive import] ()
+	* [Import all tables] ()
