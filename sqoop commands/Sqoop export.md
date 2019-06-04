@@ -114,7 +114,7 @@ create table tempmysql_hive_demo (firstname varchar(30),gender varchar(30),sno i
 
 --columns in target directory not the source directory
 
-````
+```
 sqoop export \
  --connect "jdbc:mysql://localhost:3306/mytrainingdb" \
  --username root \
