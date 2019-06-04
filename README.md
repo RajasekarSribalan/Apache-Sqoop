@@ -16,3 +16,4 @@ Behind the scene,sqoop uses `Map reduce` to import and export the data set.Hence
 * [Increemental Loads](<sqoop commands/Increemental Load.md>)
 * [Hive import](<sqoop commands/Hive import.md>)
 * [Import all tables](<sqoop commands/Sqoop Import-all-tables.md>)
+* [Sqoop export](<sqoop commands/Sqoop export.md>)
