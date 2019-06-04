@@ -60,7 +60,7 @@ sqoop export \
 
 It failed
 
-````
+```
 18/07/07 21:36:20 ERROR tool.ExportTool: Error during export: 
 Export job failed!
 	at org.apache.sqoop.mapreduce.ExportJobBase.runExport(ExportJobBase.java:445)
@@ -70,7 +70,7 @@ Export job failed!
 	at org.apache.
 ```
 
-Different scenario - we will have same type of columns but with extra column
+## Different scenario - we will have same type of columns but with extra column
 
 ```
 create table tempmysql_hive (sno int,myid int,firstname varchar(30),gender varchar(30),city varchar(20));
@@ -88,7 +88,7 @@ It is inserted but extra column has null values.
 ```
 
 
-Let us create a same table with not null type column
+## Let us create a same table with not null type column
 
 ```
 create table tempmysql_hive_2 (sno int,myid int,firstname varchar(30),gender varchar(30),city varchar(20) not null);
