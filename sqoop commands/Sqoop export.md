@@ -125,5 +125,37 @@ sqoop export \
  --input-fields-terminated-by "\001"
 ```
 
+## Update records
+
+1. Suppose I have table created in mysql with no primary keys, and I run export command twice.The result will be,data will be appended.
+2. What if I have a primary key in the mysql table.The second export run will fail.
+3. To over come this we need to add a control argument `--update-key`
+
+```
+sqoop export \
+ --connect "jdbc:mysql://localhost:3306/mytrainingdb" \
+ --username root \
+ --password root \
+ --update-key sno \
+ --update-mode allowinsert \
+ --export-dir /user/hive/warehouse/temphivetable.db/temphive \
+ --table tempmysql_hive \
+ --input-fields-terminated-by "\001"
+ ```
+ 
+ 
+## Staging table
+
+Staging table acts as an auxiliary table that is used to stage exported data.
+
+Since Sqoop breaks down export process into multiple transactions, it is possible that a failed export job may result in partial data being committed to the database. This can further lead to subsequent jobs failing due to insert collisions in some cases, or lead to duplicated data in others.
+
+You can overcome this problem by specifying a staging table via the `--staging-table` option which acts as an auxiliary table that is used to stage exported data. The staged data is finally moved to the destination table in a single transaction.
+
+In order to use the staging facility, you must create the staging table prior to running the export job. This table must be structurally identical to the target table. This table should either be empty before the export job runs, or the 	`--clear-staging-table` option must be specified. If the staging table contains data and the --clear-staging-table option is specified, Sqoop will delete all of the data before starting the export job.
+
+
+*** this will have accurate data in target table.If job fails,,nothing will be exported.
+*** this will ensure our target table is in consistent stage.Either failure or success.No partial data.
 
 
